@@ -1,5 +1,5 @@
 project_name        = "tbd-2026l-331459"
 iac_service_account = "tbd-2026l-331459-lab@tbd-2026l-331459.iam.gserviceaccount.com"
-github_org          = "34destiny"
+github_org          = "34Destiny"
 github_repo         = "tbd-workshop-1"
 github_branch       = "master"
