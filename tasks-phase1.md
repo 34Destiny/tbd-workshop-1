@@ -57,9 +57,9 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
 1. Authors:
 
-   ***enter your group nr***
+   ***enter your group nr: 6***
 
-   ***link to forked repo***
+   ***link to forked repo: https://github.com/34Destiny/tbd-workshop-1***
 
 2. Follow all steps in README.md.
 
