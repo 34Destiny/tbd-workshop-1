@@ -65,7 +65,6 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
 3. From available Github Actions select and run destroy on master branch.
 
-
 4. Create new git branch and:
     1. Modify tasks-phase1.md file.
 
