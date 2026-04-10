@@ -277,6 +277,51 @@ Hint: use the existing `.github/workflows/destroy.yml` as a starting point.
 
 ***paste workflow YAML here***
 
+```yaml
+name: Auto Destroy
+on:
+  schedule:
+    - cron: '0 20 * * *'
+  pull_request:
+    types: [closed]
+    branches: [master]
+
+permissions: read-all
+jobs:
+  auto-destroy:
+    if: github.event_name == 'schedule' || (github.event.pull_request.merged == true && contains(github.event.pull_request.title, '[CLEANUP]'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      pull-requests: write
+      issues: write
+
+    steps:
+    - uses: 'actions/checkout@v3'
+    - uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.11.0
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v1'
+      with:
+        token_format: 'access_token'
+        workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER_NAME }}
+        service_account: ${{ secrets.GCP_WORKLOAD_IDENTITY_SA_EMAIL }}
+    - name: Terraform Init
+      id: init
+      run: terraform init -backend-config=env/backend.tfvars
+    - name: Terraform Destroy
+      id: destroy
+      run: terraform destroy -no-color -var-file env/project.tfvars -auto-approve
+      continue-on-error: false
+```
+
 ***paste screenshot/log snippet confirming the auto-destroy ran***
 
+![auto-destroy confirmation](img/auto-destroy.png)
+
 ***write one sentence why scheduling cleanup helps in this workshop***
+
+Zaplanowane automatyczne usuwanie zasobów zapobiega sytuacji, w której zapomniana infrastruktura GCP generuje koszty przez noc lub weekend, co jest kluczowe w projekcie z ograniczonym budżetem.
