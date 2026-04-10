@@ -171,8 +171,45 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
 
    ***place the expected consumption you entered here***
 
-   ***place the screenshot from infracost output here***
+```yaml
+version: 0.1
+resource_usage:
+  module.gcr.google_artifact_registry_repository.registry:
+    storage_gb: 1
+    monthly_egress_data_transfer_gb:
+      europe_north1: 5
 
+  module.data-pipelines.google_storage_bucket.tbd-code-bucket:
+    storage_gb: 0.01
+    monthly_class_a_operations: 100
+    monthly_class_b_operations: 500
+    monthly_egress_data_transfer_gb:
+      worldwide: 0.1
+
+  module.data-pipelines.google_storage_bucket.tbd-data-bucket:
+    storage_gb: 0.1
+    monthly_class_a_operations: 1000
+    monthly_class_b_operations: 5000
+    monthly_egress_data_transfer_gb:
+      worldwide: 1
+
+  module.dataproc.google_storage_bucket.dataproc_staging:
+    storage_gb: 1
+    monthly_class_a_operations: 500
+    monthly_class_b_operations: 2000
+    monthly_egress_data_transfer_gb:
+      worldwide: 1
+
+  module.dataproc.google_storage_bucket.dataproc_temp:
+    storage_gb: 0.5
+    monthly_class_a_operations: 200
+    monthly_class_b_operations: 1000
+    monthly_egress_data_transfer_gb:
+      worldwide: 0.5
+```
+
+   ***place the screenshot from infracost output here***
+![infracost output](img/infracost-output.png)
 9. Find and correct the error in spark-job.py
 
     After `terraform apply` completes, connect to the Airflow cluster:
