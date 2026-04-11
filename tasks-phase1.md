@@ -288,8 +288,31 @@ https://github.com/34Destiny/tbd-workshop-1/blob/master/modules/data-pipeline/re
     ```
 
     ***place the SQL code and query output here***
+    ```
+    CREATE OR REPLACE EXTERNAL TABLE `shakespeare.shakespeare_orc_table`
+    OPTIONS (
+      format = 'ORC',
+      uris = ['gs://tbd-2026l-331459-data/data/shakespeare/*.orc']
+    );
+    ```
+    ```
+    SELECT * FROM `shakespeare.shakespeare_orc_table` LIMIT 10;
+    ```
+<img width="1302" height="380" alt="image" src="https://github.com/user-attachments/assets/3f225113-0a67-4e86-8995-d4df95019b94" />
 
     ***why does ORC not require a table schema?***
+    
+    ORC (Optimized Row Columnar) is a self-describing data format. This means that the schema information (column names, data types, and their relationships) is embedded directly within the file itself.
+    
+    There are three main reasons why a manual schema definition is unnecessary when using ORC:
+    
+    1. File Footer Metadata: Every ORC file contains a "footer" section that stores the complete schema of the data. When an engine like BigQuery or Spark accesses an ORC file, it simply reads this footer to automatically     understand the structure of the table.
+    
+    2. Strongly Typed Data: Unlike text-based formats like CSV or JSON, where everything is a string unless parsed, ORC stores data in a binary format with specific types (e.g., Integer, String, Boolean, Struct). These        types are defined at the moment the file is written by the Spark job.
+    
+    3. Complex Type Support: ORC natively supports complex structures like maps, lists, and nested records. Because these definitions are part of the file’s internal structure, the query engine can reconstruct the full        hierarchy without any external guidance.
+    
+    In summary: When creating an external table in BigQuery from ORC files, the system "asks" the files for their schema instead of requiring the user to provide it manually. This reduces the risk of schema-data mismatch      and simplifies the data pipeline.   
 
 12. Add support for preemptible/spot instances in a Dataproc cluster
 
@@ -297,7 +320,11 @@ https://github.com/34Destiny/tbd-workshop-1/blob/master/modules/data-pipeline/re
 
     "https://github.com/34Destiny/tbd-workshop-1/blob/feature/task-10-11/modules/dataproc/main.tf#L137-L140"
 
-13. Triggered Terraform Destroy on Schedule or After PR Merge. Goal: make sure we never forget to clean up resources and burn money.
+    <img width="1348" height="435" alt="image" src="https://github.com/user-attachments/assets/756780f5-88fb-4221-b1c9-16957e5a60bb" />
+
+    tbd-cluster-sw-9b6c oraz tbd-cluster-sw-gwj7 dowód działania maszyn Preemptible
+
+14. Triggered Terraform Destroy on Schedule or After PR Merge. Goal: make sure we never forget to clean up resources and burn money.
 
 Add a new GitHub Actions workflow that:
   1. runs terraform destroy -auto-approve
