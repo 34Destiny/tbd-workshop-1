@@ -338,7 +338,7 @@ jobs:
     - uses: 'actions/checkout@v3'
     - uses: hashicorp/setup-terraform@v2
       with:
-        terraform_version: 1.11.0
+        terraform_version: 1.5.0
     - id: 'auth'
       name: 'Authenticate to Google Cloud'
       uses: 'google-github-actions/auth@v1'

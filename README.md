@@ -13,7 +13,7 @@ to Google Cloud.
 ## Prerequisites
 ### Software
 * Google Cloud SDK
-* terraform ~> 1.11.0 
+* terraform ~> 1.5.0 
 * gsutil
 * pre-commit
 * Terraform ( [Requirements](#Requirements) )
@@ -119,7 +119,7 @@ terraform destroy -no-color -var-file env/project.tfvars
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.11.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.5.0 |
 | <a name="requirement_docker"></a> [docker](#requirement\_docker) | 3.0.2 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | ~> 5.44.0 |
 | <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 2.12.0 |
