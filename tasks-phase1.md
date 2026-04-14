@@ -165,6 +165,8 @@ gcloud compute ssh tbd-cluster-m --zone europe-west1-b --tunnel-through-iap -- -
 
     ***place your diagram here***
 
+![Task 7 architecture diagram](img/task7.drawio.png)
+
 8. Create a new PR and add costs by entering the expected consumption into Infracost
 For all the resources of type: `google_artifact_registry_repository`, `google_storage_bucket`
 create a sample usage profiles and add it to the Infracost task in CI/CD pipeline. Usage file [example](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml)
