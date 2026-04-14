@@ -69,7 +69,7 @@ resource "google_container_node_pool" "airflow_nodes" {
   location = "${var.region}-b"
   cluster  = google_container_cluster.airflow.name
 
-  node_count = 2
+  node_count = 3
 
   lifecycle {
     ignore_changes = [node_config]
