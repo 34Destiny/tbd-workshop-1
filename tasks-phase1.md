@@ -222,6 +222,9 @@ resource_usage:
 
    ***place the screenshot from infracost output here***
 ![infracost output](img/infracost-output.png)
+
+Przykładowa zmiana w konfiguracji airflow (z 2 nodów na 3):
+![alt text](img/infracost-example.png)
 9. Find and correct the error in spark-job.py
 
     After `terraform apply` completes, connect to the Airflow cluster:
@@ -330,10 +333,9 @@ https://github.com/34Destiny/tbd-workshop-1/blob/master/modules/data-pipeline/re
 
     ***place the link to the modified file and inserted terraform code***
 
-    "https://github.com/34Destiny/tbd-workshop-1/blob/feature/task-10-11/modules/dataproc/main.tf#L137-L140"
+    https://github.com/34Destiny/tbd-workshop-1/blob/master/modules/dataproc/main.tf
 
-    <img width="1348" height="435" alt="image" src="https://github.com/user-attachments/assets/756780f5-88fb-4221-b1c9-16957e5a60bb" />
-
+    ![alt text](img/dataproc.png)
     tbd-cluster-sw-9b6c oraz tbd-cluster-sw-gwj7 dowód działania maszyn Preemptible
 
 14. Triggered Terraform Destroy on Schedule or After PR Merge. Goal: make sure we never forget to clean up resources and burn money.
@@ -359,7 +361,7 @@ Hint: use the existing `.github/workflows/destroy.yml` as a starting point.
 name: Auto Destroy
 on:
   schedule:
-    - cron: '0 20 * * *'
+    - cron: '0 0 * * *'
   pull_request:
     types: [closed]
     branches: [master]
