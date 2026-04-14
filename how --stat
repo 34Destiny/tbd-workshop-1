@@ -1,0 +1,42 @@
+[33mcommit 48494a551978ba9744c191c192184b9b8793bde2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/task-10-11[m[33m)[m
+Author: iskiba1916 <iskiba2004@gmail.com>
+Date:   Sat Apr 11 09:46:48 2026 +0000
+
+    Completed task 11 with preemptible worker
+
+ README.md                                | 4 [32m++[m[31m--[m
+ bootstrap/README.md                      | 2 [32m+[m[31m-[m
+ bootstrap/provider.tf                    | 2 [32m+[m[31m-[m
+ cicd_bootstrap/README.md                 | 2 [32m+[m[31m-[m
+ cicd_bootstrap/provider.tf               | 2 [32m+[m[31m-[m
+ mlops/README.md                          | 2 [32m+[m[31m-[m
+ mlops/mlflow/docker_image/README.md      | 2 [32m+[m[31m-[m
+ mlops/mlflow/docker_image/versions.tf    | 2 [32m+[m[31m-[m
+ mlops/mlflow/gcp/app_engine/README.md    | 2 [32m+[m[31m-[m
+ mlops/mlflow/gcp/app_engine/versions.tf  | 2 [32m+[m[31m-[m
+ mlops/mlflow/gcp/gcr/README.md           | 2 [32m+[m[31m-[m
+ mlops/mlflow/gcp/gcr/versions.tf         | 2 [32m+[m[31m-[m
+ mlops/provider.tf                        | 2 [32m+[m[31m-[m
+ modules/composer/README.md               | 2 [32m+[m[31m-[m
+ modules/composer/versions.tf             | 2 [32m+[m[31m-[m
+ modules/data-pipeline/README.md          | 2 [32m+[m[31m-[m
+ modules/data-pipeline/versions.tf        | 2 [32m+[m[31m-[m
+ modules/dataproc/README.md               | 2 [32m+[m[31m-[m
+ modules/dataproc/main.tf                 | 4 [32m++++[m
+ modules/dataproc/versions.tf             | 2 [32m+[m[31m-[m
+ modules/dbt_docker_image/README.md       | 2 [32m+[m[31m-[m
+ modules/dbt_docker_image/versions.tf     | 2 [32m+[m[31m-[m
+ modules/gcr/README.md                    | 2 [32m+[m[31m-[m
+ modules/gcr/versions.tf                  | 2 [32m+[m[31m-[m
+ modules/jupyter_docker_image/README.md   | 2 [32m+[m[31m-[m
+ modules/jupyter_docker_image/versions.tf | 2 [32m+[m[31m-[m
+ modules/metastore/README.md              | 2 [32m+[m[31m-[m
+ modules/metastore/versions.tf            | 2 [32m+[m[31m-[m
+ modules/vertex-ai-workbench/README.md    | 2 [32m+[m[31m-[m
+ modules/vertex-ai-workbench/versions.tf  | 2 [32m+[m[31m-[m
+ modules/vpc/README.md                    | 2 [32m+[m[31m-[m
+ modules/vpc/versions.tf                  | 2 [32m+[m[31m-[m
+ notebooks/workshop_2_mlops.ipynb         | 2 [32m+[m[31m-[m
+ provider.tf                              | 2 [32m+[m[31m-[m
+ tasks-phase1.md                          | 2 [32m+[m[31m-[m
+ 35 files changed, 39 insertions(+), 35 deletions(-)
